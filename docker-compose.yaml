@@ -1,0 +1,28 @@
+version: "3.7"
+networks:
+    lan:
+volumes:
+    esdata:
+services:
+    elastic:
+        container_name: es
+        image: elasticsearch:7.4.0
+        networks:
+            - lan
+        ports:
+            - 9200:9200
+            - 9300:9300
+        environment:
+            discovery.type: single-node
+        volumes:
+            - esdata:/usr/share/elasticsearch/data
+    app:
+        container_name: app
+        build: ./app
+        networks:
+            - lan
+        ports:
+            - 8080:8080
+        volumes:
+            - ./app/core:/go/app
+
