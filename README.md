@@ -35,7 +35,7 @@ and responds with the count of special substrings as defined above.
 ### Use
 
 1. Clone repo
-2. From project root run `docker-compose up`
+2. From project root run `docker-compose up` (*Note that the Go API will take a minute or two to finish building*)
 3. Run tests `docker exec -it app go test ./...`
 4. Make special strings request count:
 
